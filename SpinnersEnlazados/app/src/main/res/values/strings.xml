@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SpinnersEnlazados</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="comunidades">
+        <item>Andalucía</item>
+        <item>Extremadura</item>
+        <item>Aragón</item>
+    </string-array>
+
+    <string-array name="andalucia">
+        <item>Huelva</item>
+        <item>Sevilla</item>
+        <item>Cádiz</item>
+        <item>Córdoba</item>
+        <item>Málaga</item>
+        <item>Jaén</item>
+        <item>Granada</item>
+        <item>Almería</item>
+    </string-array>
+    <string-array name="extremadura">
+        <item>Badajoz</item>
+        <item>Cáceres</item>
+    </string-array>
+    <string-array name="aragon">
+        <item>Teruel</item>
+        <item>Zaragoza</item>
+        <item>Huesca</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DI_T02_ejercicio01</string>
+
+    <string name="hello_world">Hola mundo!</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="register">Formulario de Registro</string>
+    <string name="name">Nombre</string>
+    <string name="surnames">Apellidos</string>
+    <string name="email">Email</string>
+    <string name="nif">NIF/NIE</string>
+    <string name="number_phone">Teléfono</string>
+    <string name="birthdate">Fecha de Nacimiento</string>
+    <string name="disabled">Discapacitado</string>
+    <string name="disabled_y">Si</string>
+    <string name="disabled_n">No</string>
+    <string name="send">Enviar</string>
+
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DI_T02_ejercicio01</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="register">Registration Form</string>
+    <string name="name">Name</string>
+    <string name="surnames">Surnames</string>
+    <string name="email">Email</string>
+    <string name="nif">NIF/NIE</string>
+    <string name="number_phone">Phone</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="disabled">Disabled</string>
+    <string name="disabled_y">Yes</string>
+    <string name="disabled_n">No</string>
+    <string name="send">Send</string>
+</resources>
