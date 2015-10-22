@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ButterKnife</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">Ejemplo de uso de ButterKnife</string>
+</resources>
