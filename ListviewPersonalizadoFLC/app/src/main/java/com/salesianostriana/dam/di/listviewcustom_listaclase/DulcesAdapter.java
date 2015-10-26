@@ -15,7 +15,7 @@ public class DulcesAdapter extends ArrayAdapter<Dulces>{
     private final Context context;
     private final ArrayList<Dulces> values;
 
-    public DulcesAdapter(Context context, ArrayList<Alumno> values) {
+    public DulcesAdapter(Context context, ArrayList<Dulces> values) {
         super(context, -1, values);
         this.context = context;
         this.values = values;
@@ -28,28 +28,26 @@ public class DulcesAdapter extends ArrayAdapter<Dulces>{
 
         // La siguiente línea de código recibe como parámetro el layout
         // que he diseñado para un elemento del ListView, en este caso
-        // para un Alumno de la lista >>> R.layout.list_item_alumno
         View layoutDulcesAInyectar = inflater.inflate(R.layout.list_item_dulces, parent, false);
 
         // Busco en el layout los elementos a modificar
-        ImageView iconoPagado = (ImageView) layoutAlumnoAInyectar.findViewById(R.id.imageViewPagado);
-        TextView nombreApTextView = (TextView) layoutAlumnoAInyectar.findViewById(R.id.textViewNombreAp);
-        TextView telefonoTextView = (TextView) layoutAlumnoAInyectar.findViewById(R.id.textViewTelefono);
+        TextView nombreTextView = (TextView) layoutDulcesAInyectar.findViewById(R.id.textViewNombre);
+        TextView pesoTextView = (TextView) layoutDulcesAInyectar.findViewById(R.id.textViewPeso);
+        TextView precioTextView = (TextView) layoutDulcesAInyectar.findViewById(R.id.textViewPrecio);
 
         // Para poder llenar los elementos del Layout de contenido, necesito obtener
         // los datos del alumno que estoy recorriendo en esta iteración
-        Alumno alumnoActual = values.get(position);
+        Dulces dulceActual = values.get(position);
 
-        if(alumnoActual.isPagado()) {
-            iconoPagado.setImageResource(R.drawable.ic_pagado);
-        } else {
-            iconoPagado.setImageResource(R.drawable.ic_no_pagado);
-        }
+        if(position %2 == 0)
+            layoutDulcesAInyectar.setBackgroundColor(android.graphics.Color.rgb(200,200,200));
 
-        nombreApTextView.setText(alumnoActual.getNombre() + " " + alumnoActual.getApellidos());
-        telefonoTextView.setText(String.valueOf(alumnoActual.getTelefono()));
 
-        return layoutAlumnoAInyectar;
+        nombreTextView.setText(dulceActual.getNombre());
+        pesoTextView.setText(dulceActual.getPeso());
+        precioTextView.setText(String.valueOf(dulceActual.getPrecio())+" euros");
+
+        return layoutDulcesAInyectar;
     }
 
 }
