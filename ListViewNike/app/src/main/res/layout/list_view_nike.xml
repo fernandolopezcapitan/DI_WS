@@ -6,16 +6,18 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:src="@android:drawable/ic_delete"
+        android:src="@drawable/min15"
         android:id="@+id/imageViewTimer" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
+        android:paddingLeft="15dp"
+        android:textSize="25dp"
         android:text="Nombre"
+        android:paddingTop="15dp"
         android:layout_toRightOf="@+id/imageViewTimer"
-        android:id="@+id/textViewNombre" />
+        android:id="@+id/textViewNombre"
+        android:gravity="center_horizontal" />
 
 </RelativeLayout>

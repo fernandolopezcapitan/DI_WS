@@ -32,21 +32,14 @@ public class EjercicioGimnasioAdapter extends ArrayAdapter<EjercicioGimnasio> {
 
         // Busco en el layout los elementos a modificar
         TextView nombreTextView = (TextView) gimnasioAInyectar.findViewById(R.id.textViewNombre);
-        ImageView tiempoTextView = (ImageView) gimnasioAInyectar.findViewById(R.id.imageViewTimer);
+        ImageView imageViewTimer = (ImageView) gimnasioAInyectar.findViewById(R.id.imageViewTimer);
 
         // Para poder llenar los elementos del Layout de contenido, necesito obtener
         // los datos del alumno que estoy recorriendo en esta iteración
         EjercicioGimnasio ejercicioActual = values.get(position);
 
-        if(position %2 == 0)
-            gimnasioAInyectar.setBackgroundColor(android.graphics.Color.rgb(200,200,200));
-
-/**
- * Continuar........
- */
         nombreTextView.setText(ejercicioActual.getNombre());
-        tiempoTextView.setText(ejercicioActual.getPeso());
-        precioTextView.setText(String.valueOf(ejercicioActual.getPrecio())+" euros");
+        imageViewTimer.setImageResource(ejercicioActual.getTiempo());
 
         return gimnasioAInyectar;
     }

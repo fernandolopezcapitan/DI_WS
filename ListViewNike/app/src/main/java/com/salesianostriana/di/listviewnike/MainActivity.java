@@ -23,15 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         final ArrayList<EjercicioGimnasio> listado = new ArrayList<EjercicioGimnasio>();
-        listado.add(new EjercicioGimnasio("SWEAT + SHAPE",R.drawable.30min));
-        listado.add(new EjercicioGimnasio("SLIM CHANCE",R.drawable.30min));
-        listado.add(new EjercicioGimnasio("FIGHTER FIT",R.drawable.30min));
-        listado.add(new EjercicioGimnasio("JUMP START",R.drawable.30min));
-        listado.add(new EjercicioGimnasio("HURRICANE",R.drawable.45min));
-        listado.add(new EjercicioGimnasio("CRUNCH + BURN",R.drawable.45min));
-        listado.add(new EjercicioGimnasio("CARDIO SURGE",R.drawable.45min));
+        listado.add(new EjercicioGimnasio("SWEAT + SHAPE",R.drawable.min30));
+        listado.add(new EjercicioGimnasio("SLIM CHANCE",R.drawable.min30));
+        listado.add(new EjercicioGimnasio("FIGHTER FIT",R.drawable.min15));
+        listado.add(new EjercicioGimnasio("JUMP START",R.drawable.min30));
+        listado.add(new EjercicioGimnasio("HURRICANE",R.drawable.min45));
+        listado.add(new EjercicioGimnasio("CRUNCH + BURN",R.drawable.min45));
+        listado.add(new EjercicioGimnasio("CARDIO SURGE",R.drawable.min45));
 
-        final DulcesAdapter adaptador = new DulcesAdapter(this,listadoDulces);
+        final EjercicioGimnasioAdapter adaptador = new EjercicioGimnasioAdapter(this,listado);
 
         lista.setAdapter(adaptador);
 
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 EjercicioGimnasio ejercicioSeleccionado = listado.get(position);
 
                 adaptador.notifyDataSetChanged();
+
+
             }
         });
     }
