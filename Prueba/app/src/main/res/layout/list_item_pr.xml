@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageMarcado"
+        android:src="@drawable/abc_btn_check_to_on_mtrl_000"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView"
+        android:paddingTop="6dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageMarcado"
+        android:layout_toEndOf="@+id/imageMarcado" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView2"
+        android:paddingTop="6dp"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/imageMarcado"
+        android:layout_toEndOf="@+id/imageMarcado" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageEstrella"
+        android:src="@drawable/abc_btn_rating_star_off_mtrl_alpha"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
