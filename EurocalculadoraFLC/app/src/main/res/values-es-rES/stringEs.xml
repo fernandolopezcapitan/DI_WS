@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eurocalculadora</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="Change_pts">Cambio a pts</string>
+    <string name="Change_eur">Cambio a eur</string>
+
+</resources>
