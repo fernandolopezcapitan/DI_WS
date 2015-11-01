@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">PruebaBoton</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="btn_hello">Hola wein</string>
-</resources>

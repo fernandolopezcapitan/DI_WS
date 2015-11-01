@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">DI_T02_MiPrimeraTostada</string>
-
-    <string name="hello_world">¿Cómo te llamas?</string>
-    <string name="action_settings">Settings</string>
-    <string name="write_name">Escribe tu nombre</string>
-    <string name="send">Enviar</string>
-</resources>
