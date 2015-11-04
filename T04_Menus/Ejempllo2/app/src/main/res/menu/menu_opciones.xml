@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Buscar"
+        compat:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_configuration"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Configuración"
+        compat:showAsAction=""/>
+    <item android:id="@+id/action_logout"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Salir"
+        compat:showAsAction="ifRoom"/>
+
+</menu>
