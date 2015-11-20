@@ -54,7 +54,7 @@ public class GcmIntentService extends IntentService {
                 Log.i("JSON Message", "JSON: " + extras.getString("Mensaje nuevo"));
                 JSONArray jsonMensaje;
                 try {
-                    jsonMensaje = new JSONArray("["+extras.getString("alerta")+"]");
+                    jsonMensaje = new JSONArray("[{"+extras.getString("alerta")+"]}");
                     String mensajeRecibido = jsonMensaje.getJSONObject(0).getJSONArray("list").getJSONObject(0).getJSONArray("weather").getJSONObject(0).getString("main");
                     String ciudad = jsonMensaje.getJSONObject(0).getJSONArray("list").getJSONObject(0).getString("name");
 

@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.salesianostriana.dam.di.talkmev1.R;
@@ -25,12 +26,15 @@ public class AmigosAdapter extends RecyclerView.Adapter<AmigosAdapter.AmigosView
     // you provide access to all the views for a data item in a view holder
     public static class AmigosViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView usuario;
+        public TextView amigos;
+        public ImageButton enviar;
+
 
         public AmigosViewHolder(View v) {
 
             super(v);
-            usuario = (TextView)v.findViewById(R.id.tv_usuario);
+            amigos = (TextView)v.findViewById(R.id.tv_usuario);
+            enviar = (ImageButton)v.findViewById(R.id.img_enviar);
         }
     }
 
@@ -54,27 +58,20 @@ public class AmigosAdapter extends RecyclerView.Adapter<AmigosAdapter.AmigosView
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(AmigosViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+    public void onBindViewHolder(AmigosViewHolder holder, final int position) {
 
-        holder.usuario.setText(mDataset.get(position).getAmigos());
-
-        // Aqui crear funcionalidad con un (boton) setOnClickListener que mande un intent
-        // y que abra un nuevo activity (MandarMensaje.class) y añadiendole un put extra
-        // en ese put extra adjuntar el "usuario".
-
-        mDataset.setOnItemClickListener(new View.OnClickListener() {
+        // Recoger en el OnCreate del MandarMensaje el extra "amigos"
+        holder.amigos.setText(mDataset.get(position).getAmigos());
+        holder.enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(contexto, MensajeActivity.class);
-                String nombre = mDataset.get(position).getNombre();
+                String nombre = mDataset.get(position).getAmigos();
                 i.putExtra("destinatario", nombre);
                 (contexto).startActivity(i);
             }
         });
 
-        // Recoger en el OnCreate del MandarMensaje el extra "usuario"
     }
 
     // Return the size of your dataset (invoked by the layout manager)

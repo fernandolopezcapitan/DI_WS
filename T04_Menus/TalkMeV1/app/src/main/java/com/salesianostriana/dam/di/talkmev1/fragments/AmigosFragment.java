@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.salesianostriana.dam.di.talkmev1.R;
 import com.salesianostriana.dam.di.talkmev1.adapters.AmigosAdapter;
 import com.salesianostriana.dam.di.talkmev1.models.AmigosItem;
+import com.salesianostriana.dam.di.talkmev1.services.AmigosAsyncTask;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,6 @@ public class AmigosFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,10 +43,9 @@ public class AmigosFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        amigos = new ArrayList();
-        amigos.add(new AmigosItem("pepe"));
-        amigos.add(new AmigosItem("luisma"));
-        amigos.add(new AmigosItem("noe"));
+        //new AsyntTask
+        new AmigosAsyncTask().execute();
+        //new GcmRegistrationAsyncTask(LoginActivity.this).execute(nick_name.getText().toString());
 
         // specify an adapter (see also next example)
         mAdapter = new AmigosAdapter(amigos);
@@ -54,15 +53,6 @@ public class AmigosFragment extends Fragment {
 
         return v;
 
-        /*Desde aqui
-        View v = inflater.inflate(R.layout.fragment_pronostico, container, false);
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        new GetDataTask().execute();
-        return v;
-        //////hasta aaqui*/
     }
 
 

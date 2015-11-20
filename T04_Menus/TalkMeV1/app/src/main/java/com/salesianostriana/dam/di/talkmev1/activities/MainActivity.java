@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import com.salesianostriana.dam.di.talkmev1.fragments.MensajesFragment;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
+    //Button btn_cerrar_sesion;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Crea el boton cerrar sesion que está alojado en menu_main
         // En caso de pulsar borra las preferencias y va hacia la pantalla de registro
+        //btn_cerrar_sesion = (Button) findViewById(R.id.btn_cerrar_sesion);
 
         int id = item.getItemId();
         switch(id) {

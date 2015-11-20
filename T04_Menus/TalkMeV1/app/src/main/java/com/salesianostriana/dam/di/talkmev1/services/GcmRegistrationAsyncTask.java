@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.di.talkmev1.services;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -67,6 +68,12 @@ public class GcmRegistrationAsyncTask extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
         Logger.getLogger("REGISTRATION").log(Level.INFO, msg);
+        SharedPreferences preferences = context.getSharedPreferences("preferencias", Context.MODE_APPEND);
+        final SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("regId", msg);
+        editor.apply();
+        editor.commit();
+
     }
 
     private void sendRegistrationIdToBackend() {

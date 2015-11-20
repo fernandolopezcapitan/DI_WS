@@ -40,7 +40,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="com.salesianostriana.dam.di.solucionproyectoweather" />
+                <category android:name="com.salesianostriana.dam.di.talkmev1" />
             </intent-filter>
         </receiver>
 
