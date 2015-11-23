@@ -1,0 +1,61 @@
+En esta ocasión hablaremos de como crear una de las herramientas visuales más conocidas de aplicaciones Android: los tabs. Para ello, y como siempre, nos apoyaremos en el editor Android Studio versión 1.4.
+
+Baste con decir, que una estructura de tabs no es más que un paginado horizontal o pestañas que nos ayuda a pasar a otros Fragments deslizando el dedo a izquierda o derecha.
+
+Para ello, y empezando con el tutorial, sería importante al construir nuestro nuevo proyecto marcar en la elección de activities “Tabbed Activity”, y posteriormente en Navigation Style “Action Bar Tabs (with ViewPager)”, de otra manera estaríamos eligiendo una vista Swipe o Spinner, pero en ningún caso Tabs, que es lo que trabajaremos hoy. Con todo ello realizado, el editor nos generará los métodos necesarios que debemos sobreescribir.
+
+Recordemos que para intercambiar entre elementos se usa el gesto swipe de izquierda a derecha o viceversa. Al implementarlo es necesario crear un adaptador del tipo PagerAdapter, que infle cada página de forma individual. Este proceso es muy parecido a cuando usábamos listas.
+
+Dicho elemento pertenece a la Librería de soporte v4, así que no olvides incluir la dependencia en Gradle.
+
+En todo caso, obtenidos los métodos getItem(int), getCount() y getPageTitle(), reescritos de la librería de soporte v4 PagerAdapter, baste con modificarlos de la siguiente manera a modo de ejemplo:
+
+@Override
+public Fragment getItem(int position) {
+    switch (position) {
+        case 0:
+            return new DiaFragment();
+        case 1:
+            return new SemanaFragment();
+        case 2:
+            return new MesFragment() ;
+    }
+    return null;
+}
+
+@Override
+public int getCount() {
+    // Show 3 total pages.
+    return 3;
+}
+
+@Override
+public CharSequence getPageTitle(int position) {
+    switch (position) {
+        case 0:
+            return "DIA";
+        case 1:
+            return "SEMANA";
+        case 2:
+            return "MES";
+    }
+    return null;
+}
+
+Donde en el método getItem(int) le hemos vinculado mediante switch una llamada a los fragments DiaFragment(), SemanaFragment() y MesFragment(). El método getCount() nos devuelve el número de tabs o pestañas que deseamos obtener (en este caso 3). Y getPageTitle() nos devuelve, también mediante switch el nombre de la respectiva pestaña.
+
+Es así de sencillo. Para terminar no olvidemos inflar el respectivo layout en cada fragment, de esta manera:
+
+public class DiaFragment extends Fragment {
+
+    public DiaFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_dia, container, false);
+    }
+}
