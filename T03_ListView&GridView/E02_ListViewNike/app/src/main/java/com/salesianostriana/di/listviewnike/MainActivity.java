@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        // IMPORTANTE!!!!!!!
+        // darle evento a la pulsación larga
         registerForContextMenu(lista);
     }
 
