@@ -1,0 +1,17 @@
+Proyecto AroundMe (1ª entrega)
+
+Se pide transformar el Proyecto Talkme que se diseñó con pestañas, al nuevo proyecto AroundMe, que debe diseñarse con NavigationDrawer.
+
+Tener en cuenta:
+
+    Se debemantener un LoginActivity para que el usuario solicite un nickname para entrar en el chat.
+    Tenemos como novedad que el usuario podrá seleccionar un avatar, así que podemos ir pensando cómo poner en el LoginActivity o en otra pantalla la selección del avatar. Los avatares estarán disponibles en el servidor y consiste en un conjunto de 11 imágenes, numeradas del 1 al 11. La URL de la primera es la siguiente:
+
+      http://rest.miguelcr.com/images/aroundme/1.png
+
+      ...
+
+      http://rest.miguelcr.com/images/aroundme/11.png
+
+    Se debe poder cerrar la sesión del chat, teniendo en cuenta que antes lo hacíamos desde el Menú de opciones (Toolbar) y ahora debería estar la opción de Salir en el Menú lateral.+
+    Disponemos igualmente de 2 secciones: Usuarios y Mensajes (cada una con su Fragment) y una tercera sección que será Mapa, aunque esta tercera la implementaremos a partir del Lunes.

@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_login);
         // Modo append = editable. Modo private = no editable
         preferences = getSharedPreferences("preferencias", Context.MODE_APPEND);
         final SharedPreferences.Editor editor = preferences.edit();
