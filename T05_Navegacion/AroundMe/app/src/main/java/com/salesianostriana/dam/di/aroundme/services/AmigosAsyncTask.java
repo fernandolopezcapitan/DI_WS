@@ -27,7 +27,7 @@ public class AmigosAsyncTask extends AsyncTask<Void, Void, ArrayList<String>> {
     URL url = null;
     String msg = "";
     HttpURLConnection urlConnection = null;
-    SharedPreferences preferences = context.getSharedPreferences("preferencias", Context.MODE_APPEND);
+    SharedPreferences preferences = context.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
     String regId;
 
     @Override

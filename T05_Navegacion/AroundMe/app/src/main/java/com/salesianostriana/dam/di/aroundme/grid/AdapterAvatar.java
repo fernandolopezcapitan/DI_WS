@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.salesianostriana.dam.di.aroundme.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,7 @@ public class AdapterAvatar extends ArrayAdapter<Avatar> {
         Avatar avatarActual = values.get(position);
 
         nombreTextView.setText(avatarActual.getNombre());
+        Picasso.with(context).load(avatarActual.getUrl_avatar()).into(icono);
 
         return layoutAppAInyectar;
     }

@@ -1,8 +1,5 @@
 package com.salesianostriana.dam.di.aroundme.activities;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -21,8 +18,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.salesianostriana.dam.di.aroundme.R;
-import com.salesianostriana.dam.di.aroundme.fragments.MensajesFragment;
 import com.salesianostriana.dam.di.aroundme.fragments.AmigosFragment;
+import com.salesianostriana.dam.di.aroundme.fragments.MensajesFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,6 +33,13 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        //ANOTACIONES CLASE MIGUEL
+        //Importar de gms lo de google
+        //Ver comentarios y métodos de miguel
+
+
 
         // Rescato una referencia del FrameLayout en el que voy
         // a cargar las páginas (Fragments)
@@ -60,8 +64,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Para rescatar una referencia a la cabecera del Menú lateral...
-        //View cabeceraMenuLateral = navigationView.getHeaderView(0);
-        //ImageView avatar = (ImageView)cabeceraMenuLateral.findViewById(R.id.imageViewAvatar);
+        View cabeceraMenuLateral = navigationView.getHeaderView(0);
+        ImageView avatar = (ImageView)cabeceraMenuLateral.findViewById(R.id.imageViewAvatar);
+
+        this.transicionPagina(new AmigosFragment());
 
         // Marcar como elemento actual el 2º de la lista (quitar de aqui)
         //navigationView.setCheckedItem(R.id.nav_mensajes);

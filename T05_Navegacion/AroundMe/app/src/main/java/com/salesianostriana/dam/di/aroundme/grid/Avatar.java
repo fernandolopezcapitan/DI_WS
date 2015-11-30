@@ -6,9 +6,9 @@ package com.salesianostriana.dam.di.aroundme.grid;
 public class Avatar {
 
     String nombre;
-    int url_avatar;
+    String url_avatar;
 
-    public Avatar(String nombre, int url_avatar) {
+    public Avatar(String nombre, String url_avatar) {
         this.nombre = nombre;
         this.url_avatar = url_avatar;
     }
@@ -21,11 +21,11 @@ public class Avatar {
         this.nombre = nombre;
     }
 
-    public int getUrl_avatar() {
+    public String getUrl_avatar() {
         return url_avatar;
     }
 
-    public void setUrl_avatar(int url_avatar) {
+    public void setUrl_avatar(String url_avatar) {
         this.url_avatar = url_avatar;
     }
 }
