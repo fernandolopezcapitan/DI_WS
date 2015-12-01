@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.di.aroundme.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,17 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.salesianostriana.dam.di.aroundme.R;
 import com.salesianostriana.dam.di.aroundme.models.MensajesItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by flopez on 19/11/2015.
  */
 public class MensajesAdapter extends RecyclerView.Adapter<MensajesAdapter.MensajesViewHolder>{
-    private ArrayList<MensajesItem> mDataset;
+    private List<MensajesItem> mDataset;
+    Context context;
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -41,8 +43,9 @@ public class MensajesAdapter extends RecyclerView.Adapter<MensajesAdapter.Mensaj
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MensajesAdapter(ArrayList<MensajesItem> myDataset) {
-        mDataset = myDataset;
+    public MensajesAdapter(Context context, List<MensajesItem> myDataset) {
+        this.context = context;
+        this.mDataset = myDataset;
     }
 
     // Create new views (invoked by the layout manager)

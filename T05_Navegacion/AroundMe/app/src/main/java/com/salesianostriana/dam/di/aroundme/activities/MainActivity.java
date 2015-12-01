@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.di.aroundme.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -128,6 +129,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_mapas) {
             mensaje = "Mapas fragments";
             //f = new MapasFragment();
+            Intent i = new Intent(MainActivity.this, MapsActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_cerrar_sesion) {
             mensaje = "Cerrar sesión";
 

@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.di.aroundme.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.salesianostriana.dam.di.aroundme.R;
-import com.salesianostriana.dam.di.aroundme.adapters.AmigosAdapter;
-import com.salesianostriana.dam.di.aroundme.models.AmigosItem;
-import com.salesianostriana.dam.di.aroundme.services.AmigosAsyncTask;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -21,11 +21,13 @@ import java.util.ArrayList;
  */
 public class AmigosFragment extends Fragment {
 
+    JSONArray response = new JSONArray();
+    Context context;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<AmigosItem> amigos;
-
+    ArrayList<String> lista;
+    ArrayList<String> nueva;
 
     public AmigosFragment() {
         // Required empty public constructor
@@ -42,15 +44,92 @@ public class AmigosFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        //new AsyntTask
-        new AmigosAsyncTask().execute();
+
+        //new AmigosParseAsyncTask().execute();
         //new GcmRegistrationAsyncTask(LoginActivity.this).execute(nick_name.getText().toString());
 
         // specify an adapter (see also next example)
-        mAdapter = new AmigosAdapter(amigos);
-        mRecyclerView.setAdapter(mAdapter);
 
         return v;
 
     }
+
+/*
+    private class AmigosParseAsyncTask extends AsyncTask<Void, Void, ArrayList<String>> {
+
+
+        URL url = null;
+        String msg = "";
+        HttpURLConnection urlConnection = null;
+        SharedPreferences prefs = context.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+        String regId;
+
+        @Override
+        protected ArrayList<String> doInBackground(Void... params) {
+            lista = new ArrayList();
+
+
+            regId = prefs.getString("regId", null);
+            try {
+                // Coje la URL
+                url = new URL("http://miguelcr.hol.es/talkme/users?regId=" + regId);
+
+                // Abre la conexión
+                urlConnection = (HttpURLConnection) url.openConnection();
+                String responseString = readStream(urlConnection.getInputStream());
+                response = new JSONArray(responseString);
+                lista = new ArrayList();
+
+                for (int i = 0; i < response.length(); i++) {
+                    String amigos = response.getJSONObject(i).getString("nickname");
+                    lista.add(amigos);
+                }
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return lista;
+        }
+
+        private String readStream(InputStream in) {
+            BufferedReader reader = null;
+            StringBuffer response = new StringBuffer();
+            try {
+                reader = new BufferedReader(new InputStreamReader(in));
+                String line = "";
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return response.toString();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<String> strings) {
+            if (lista != null) {
+                nueva = new ArrayList();
+                for (int i = 0; i < lista.size(); i++) {
+                    String users = lista.get(i);
+                    nueva.add(users);
+                }
+
+            }
+
+        }
+
+    }*/
 }
