@@ -1,1 +1,9 @@
 NavigationDrawer
+
+
+Ver sitios
+Mapas
+
+Cerrar sesion
+
+El boton flotante del scrolling, poner compartir por whatssap, o se abre un intent implicito con el action dial y llame directamente al sitio

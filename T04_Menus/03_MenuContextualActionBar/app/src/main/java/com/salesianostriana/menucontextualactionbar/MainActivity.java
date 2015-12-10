@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         seleccionados = new boolean[alumnos.length];
 
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
+        final ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,alumnos);
 
         lista.setAdapter(adaptador);
@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.delete_items:
                         Toast.makeText(MainActivity.this,"Eliminar seleccionados",Toast.LENGTH_LONG).show();
+                        alumnos = new String[] {};
+                        adaptador.notifyDataSetChanged();
                         mode.finish(); // Action picked, so close the CAB
                         return true;
                     default:
