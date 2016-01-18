@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Registro de usuario</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nombre_usuario">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="email">Email</string>
+    <string name="dni_nif">DNI/NIF</string>
+</resources>
