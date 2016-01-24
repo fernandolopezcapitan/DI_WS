@@ -3,11 +3,17 @@ package com.dam.salesianostriana.pmdm.calculadoracalorias;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -33,6 +39,10 @@ public class MapTrackerFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap map;
     MapView mapView;
     TextView txtMetros, txtCalorias;
+    Chronometer crono;
+    ToggleButton btn_contar;
+    Button btn_guardar;
+    long minutos, segundos;
 
     public MapTrackerFragment() {
         // Required empty public constructor
@@ -49,6 +59,32 @@ public class MapTrackerFragment extends Fragment implements OnMapReadyCallback {
         mapView = (MapView) v.findViewById(R.id.mapview);
         txtMetros = (TextView) v.findViewById(R.id.Mapas_Distancia);
         txtCalorias = (TextView) v.findViewById(R.id.Mapas_Calorias);
+        crono = (Chronometer) v.findViewById(R.id.cronometro);
+        btn_contar = (ToggleButton) v.findViewById(R.id.contar);
+        btn_guardar = (Button) v.findViewById(R.id.Mapas_btn_guardar);
+
+        btn_guardar.setEnabled(false);
+
+        btn_contar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    crono.setBase(SystemClock.elapsedRealtime());
+                    crono.start();
+                    btn_guardar.setEnabled(false);
+                }else{
+                    minutos = ((SystemClock.elapsedRealtime()-crono.getBase())/1000)/60;
+                    segundos = ((SystemClock.elapsedRealtime()-crono.getBase())/1000)%60;
+                    crono.stop();
+                    Log.d("MINUTOS:", String.valueOf(minutos));
+                    Log.d("SEGUNDOS:",String.valueOf(segundos));
+                    btn_guardar.setEnabled(true);
+                }
+            }
+        });
+
+        // btn_guardar.setOnClickListener
+
 
         mapView.onCreate(savedInstanceState);
 
@@ -105,7 +141,7 @@ public class MapTrackerFragment extends Fragment implements OnMapReadyCallback {
                     double metros = SphericalUtil.computeDistanceBetween(lista_lat.get(0), lista_lat.get(lista_lat.size() - 1)) / 1000;
                     //hace que se vaya mostrando la distancia recorrida en ese momento.
                     txtMetros.setText(String.valueOf(decimalFormat.format(metros) + " km"));
-                    txtCalorias.setText(String.valueOf(decimalFormat.format(calcularCalorias(55, metros)) + " k/cal"));
+                    txtCalorias.setText(String.valueOf(decimalFormat.format(calcularCalorias(75, metros)) + " k/cal"));
                 }
                 Polyline polygon = map.addPolyline(options);
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(lat_long, 15));
@@ -115,6 +151,8 @@ public class MapTrackerFragment extends Fragment implements OnMapReadyCallback {
     }
 
     public double calcularCalorias(double peso, double distancia){
+        // Kcal. cardio moderado: 0,06 x (peso en kg x 2,2) x minutos de práctica
+        // Kcal. cardio intenso: 0,129 x (peso en kg x 2,2) x minutos de práctica
         return peso * distancia;
     }
 

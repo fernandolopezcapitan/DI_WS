@@ -19,14 +19,14 @@ import java.text.DecimalFormat;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment {
+public class GraphicsFragment extends Fragment {
 
 
     private final static String[] mLabels= {"W", "I", "L", "L", "I", "A", "M"};
     private final static float[] mValues = {2.5f, 3.7f, 4f, 8f, 4.5f, 4f, 5f};
 
 
-    public BlankFragment() {
+    public GraphicsFragment() {
         // Required empty public constructor
     }
 
